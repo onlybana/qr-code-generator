@@ -33,6 +33,7 @@ export async function parseExcel(formData: FormData) {
 
             const svgString = await QRCode.toString(link, {
                 type: "svg",
+                margin: 0, // remove padding around QR
                 color: {
                     dark: theme === "dark" ? "#ffffff" : "#000000",
                     light: theme === "dark" ? "#000000" : "#ffffff",
@@ -42,7 +43,7 @@ export async function parseExcel(formData: FormData) {
             // Extract QR code dimensions
             const viewBoxMatch = svgString.match(/viewBox="0 0 (\d+) (\d+)"/);
             const qrSize = viewBoxMatch ? parseInt(viewBoxMatch[1]) : 256;
-            const textHeight = 10;
+            const textHeight = 40;
             const totalHeight = qrSize + textHeight;
 
             const cleanedSvg = svgString
@@ -60,21 +61,20 @@ export async function parseExcel(formData: FormData) {
                 .replace(
                     "</svg>",
                     `<text
-                      x="50%"
-                      y="${qrSize + 4}"
-                      text-anchor="middle"
-                      font-family="Arial, sans-serif"
-                      font-size="${Math.min(qrSize * 0.12, 20)}"
-                      textLength="${qrSize * 0.9}"
-                      lengthAdjust="spacing"
-                      font-weight="bold"
-                      fill="${theme === "dark" ? "#000000" : "#000000"}"
+                        x="50%"
+                        y="${qrSize + 30}"
+                        text-anchor="middle"
+                        font-family="Arial, sans-serif"
+                        font-size="${Math.min(qrSize * 0.12, 20)}"
+                        textLength="${qrSize * 0.9}"
+                        lengthAdjust="spacing"
+                        font-weight="bold"
+                        fill="${theme === "dark" ? "#ffffff" : "#000000"}"
                     >${token}</text>
-                  </svg>`
-                )
+</svg>`
+                );
 
-
-            zip.file(`qr_${token}.svg`, cleanedSvg);
+            zip.file(`qr_${token}.eps`, cleanedSvg); // save as EPS extension
         })
     );
 
