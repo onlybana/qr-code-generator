@@ -74,7 +74,7 @@ export async function parseExcel(formData: FormData) {
 </svg>`
                 );
 
-            zip.file(`qr_${token}.eps`, cleanedSvg); // save as EPS extension
+            zip.file(`qr_${token}.svg`, cleanedSvg); // save as EPS extension
         })
     );
 
