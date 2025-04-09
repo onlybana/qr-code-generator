@@ -62,11 +62,11 @@ export async function parseExcel(formData: FormData) {
                     "</svg>",
                     `<text
                         x="50%"
-                        y="${qrSize + 4}"
+                        y="${qrSize + 5}"
                         text-anchor="middle"
                         font-family="Arial, sans-serif"
                         font-size="${Math.min(qrSize * 0.12, 20)}"
-                        textLength="${qrSize * 0.9}"
+                        textLength="${qrSize * 1}"
                         lengthAdjust="spacing"
                         font-weight="bold"
                         fill="${theme === "dark" ? "#ffffff" : "#000000"}"
