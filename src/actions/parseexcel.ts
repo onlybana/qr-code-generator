@@ -28,7 +28,7 @@ export async function parseExcel(formData: FormData) {
     const zip = new JSZip();
 
     await Promise.all(
-        tokens.map(async (token, i) => {
+        tokens.map(async (token) => {
             const link = `${BASE_URL}${token}`;
 
             const svgString = await QRCode.toString(link, {

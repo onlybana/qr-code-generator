@@ -121,8 +121,9 @@ export default function Home() {
               </CardTitle>
             </div>
             <CardDescription className="text-gray-500 mt-2">
-              Upload an Excel file containing tokens starting with "TG_" to
-              generate QR codes and download them as a ZIP file.
+              Upload an Excel file containing tokens starting with
+              &quot;TG_&quot; to generate QR codes and download them as a ZIP
+              file.
             </CardDescription>
           </CardHeader>
 
@@ -370,8 +371,8 @@ export default function Home() {
                       </h3>
                       <p className="text-sm text-gray-500 text-center max-w-md">
                         Your QR codes have been generated and downloaded as a
-                        ZIP file. If the download didn't start automatically,
-                        click the button below.
+                        ZIP file. If the download didn&apos;t start
+                        automatically, click the button below.
                       </p>
                       <Button
                         onClick={() => {
@@ -436,7 +437,10 @@ export default function Home() {
 
           <CardFooter className="bg-gray-50 rounded-b-lg border-t py-4 text-xs text-gray-500">
             <div className="w-full flex justify-between items-center">
-              <p>Tokens starting with "TG_" will be converted to QR codes</p>
+              <p>
+                Tokens starting with &quot;TG_&quot; will be converted to QR
+                codes
+              </p>
               <p>© {new Date().getFullYear()} QR Generator</p>
             </div>
           </CardFooter>
