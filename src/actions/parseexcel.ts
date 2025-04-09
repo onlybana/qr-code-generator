@@ -43,7 +43,7 @@ export async function parseExcel(formData: FormData) {
             // Extract QR code dimensions
             const viewBoxMatch = svgString.match(/viewBox="0 0 (\d+) (\d+)"/);
             const qrSize = viewBoxMatch ? parseInt(viewBoxMatch[1]) : 256;
-            const textHeight = 40;
+            const textHeight = 10;
             const totalHeight = qrSize + textHeight;
 
             const cleanedSvg = svgString
@@ -62,7 +62,7 @@ export async function parseExcel(formData: FormData) {
                     "</svg>",
                     `<text
                         x="50%"
-                        y="${qrSize + 30}"
+                        y="${qrSize + 4}"
                         text-anchor="middle"
                         font-family="Arial, sans-serif"
                         font-size="${Math.min(qrSize * 0.12, 20)}"
